@@ -1,2 +1,32 @@
-package PACKAGE_NAME;public class Course {
+public class Course {
+    Teacher courseTeacher;
+    String name;
+    String code;
+    String prefix;
+    int ynote;
+    int snote;
+    public  Course(String name,String code,String prefix){
+        this.name=name;
+        this.code=code;
+        this.prefix=prefix;
+        this.ynote=0;
+        this.snote=0;
+    }
+    public void addTeacher(Teacher t) {
+        if (this.prefix.equals(t.branch)) {
+            this.courseTeacher = t;
+            System.out.println("İşlem başarılı");
+            printTeacher();
+        } else {
+            System.out.println(t.name + " Akademisyeni bu dersi veremez.");
+        }
+    }
+    public void printTeacher() {
+        if (courseTeacher != null) {
+            System.out.println(this.name + " dersinin Akademisyeni : " + courseTeacher.name);
+        } else {
+            System.out.println(this.name + " dersine Akademisyen atanmamıştır.");
+        }
+    }
+
 }
